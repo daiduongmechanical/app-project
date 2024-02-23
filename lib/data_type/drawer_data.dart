@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
 class DrawerData {
-   DrawerData({required this.name, required this.icon});
-  late String name;
-  late Icon icon;
+   DrawerData({required this.name, required this.icon , required this.page});
+   String name;
+   Icon icon;
+   Widget page;
 
 }

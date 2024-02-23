@@ -1,21 +1,24 @@
-
-import 'package:final_project/layout/no_header_layout.dart';
-import 'package:final_project/layout/normal_layout.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
-import 'component/test_file.dart';
+import 'page/homepage.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key});
 
   @override
   Widget build(BuildContext context) {
-/*return NoHeaderLayout(child: Text('data'));*/
-    return  const NormalLayout(headText: 'Home Page',
-    child: Center(child: Text('name')),);
+    return MaterialApp(
+      home:  SafeArea(
+        child: Scaffold(
+          body: HomePage(),
+        ),
+      ),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:final_project/page/time_table_page.dart';
 import 'package:flutter/material.dart';
 import 'package:final_project/shared/shared.dart';
 import 'package:page_transition/page_transition.dart';
@@ -9,12 +10,17 @@ import '../page/test_page.dart';
 class CustomDrawer extends StatelessWidget {
   static List<DrawerData> drawerItems = [
     DrawerData(name: 'Home', icon: const Icon(Icons.home), page: HomePage()),
-    DrawerData(name: 'Settings', icon: const Icon(Icons.settings), page: TestPage()),
+    DrawerData(
+        name: 'Settings', icon: const Icon(Icons.settings), page: TestPage()),
+    DrawerData(
+        name: 'Time table',
+        icon: const Icon(Icons.calendar_month),
+        page: TimeTablePage()),
   ];
   static const String url =
       "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/large/800/Barney-Stinson.How-I-Met-Your-Mother.webp";
 
-  const CustomDrawer({Key? key});
+  const CustomDrawer({Key? key });
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +46,8 @@ class CustomDrawer extends StatelessWidget {
               leading: c.icon,
               title: Text(
                 c.name,
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               onTap: () {
                 Scaffold.of(context).closeDrawer();
@@ -61,11 +68,14 @@ class CustomDrawer extends StatelessWidget {
             height: 50,
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+
+              },
               style: ElevatedButton.styleFrom(
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.zero,
-                ), backgroundColor: MainColor,
+                ),
+                backgroundColor: MainColor,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

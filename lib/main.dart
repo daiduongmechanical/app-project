@@ -1,3 +1,4 @@
+import 'package:final_project/page/first_page.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -13,11 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home:  SafeArea(
-        child: Scaffold(
-          body: HomePage(),
-        ),
-      ),
+      home: FirstPage(),
       debugShowCheckedModeBanner: false,
     );
   }

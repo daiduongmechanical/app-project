@@ -11,23 +11,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NormalLayout(
-      context,
       headText: 'home page',
       child: Column(
         children: [
-          FilledButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                PageTransition(
-                  type: PageTransitionType.rightToLeft,
-                  child: const TestPage(),
-                  ctx: context,
-                ),
-              );
-            },
-            child: Text('to Test page'),
-          ),
+
           FilledButton(
             onPressed: () {
               if (Navigator.of(context).canPop()) {
@@ -36,6 +23,20 @@ class HomePage extends StatelessWidget {
             },
             child: Text('back to previous page'),
           ),
+          TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: "hello"
+            ),
+          ),
+    TextFormField(
+
+    decoration: const InputDecoration(
+    icon: Icon(Icons.person),
+    hintText: 'What do people call you?',
+    labelText: 'Name *',
+    ),
+    )
         ],
       ),
     );

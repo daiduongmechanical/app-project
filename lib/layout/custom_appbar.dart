@@ -1,9 +1,11 @@
 import 'package:final_project/shared/shared.dart';
 import 'package:flutter/material.dart';
 
-AppBar header(BuildContext context,
-    {required String text,
-      required GlobalKey<ScaffoldState> scaffoldKey}) {
+AppBar header(
+  BuildContext context, {
+  required String text,
+      required GlobalKey<ScaffoldState> scaffoldKey
+}) {
   return AppBar(
     backgroundColor: MainColor,
     title: Text(

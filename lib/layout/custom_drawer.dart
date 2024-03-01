@@ -26,6 +26,7 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       width: MediaQuery.of(context).size.width * 0.75,
+
       child: Column(
         children: [
           DrawerHeader(
@@ -50,7 +51,7 @@ class CustomDrawer extends StatelessWidget {
                     const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               onTap: () {
-                Scaffold.of(context).closeDrawer();
+                Scaffold.of(context).closeEndDrawer();
                 Navigator.push(
                   context,
                   PageTransition(

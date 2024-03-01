@@ -1,11 +1,10 @@
 import 'package:final_project/shared/shared.dart';
 import 'package:flutter/material.dart';
 
-AppBar header(
-  BuildContext context, {
-  required String text,
-      required GlobalKey<ScaffoldState> scaffoldKey
-}) {
+AppBar NoDrawerAppbar(
+    BuildContext context, {
+      required String text,
+    }) {
   return AppBar(
     backgroundColor: MainColor,
     title: Text(
@@ -29,17 +28,6 @@ AppBar header(
         }
       },
     ),
-    actions: [
-      IconButton(
-        icon: const Icon(
-          Icons.menu,
-          size: 26,
-          color: Colors.black,
-        ),
-        onPressed: () {
-          scaffoldKey.currentState?.openEndDrawer();
-        },
-      ),
-    ],
+
   );
 }

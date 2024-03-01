@@ -15,7 +15,11 @@ class _TimeTablePage extends State<TimeTablePage> {
   bool check = false;
   List<CalendarData> data = [
     CalendarData(fieldName: "match", room: "A1.01", Time: "12:00- 2:00"),
-    CalendarData(fieldName: "chemistry", room: "A1.01", Time: "12:00- 2:00")
+    CalendarData(fieldName: "chemistry", room: "A1.01", Time: "12:00- 2:00"),
+    CalendarData(fieldName: "match", room: "A1.01", Time: "12:00- 2:00"),
+    CalendarData(fieldName: "chemistry", room: "A1.01", Time: "12:00- 2:00"),
+    CalendarData(fieldName: "match", room: "A1.01", Time: "12:00- 2:00"),
+
   ];
 
   void _onDaySelected(DateTime day, DateTime focusedDay) {
@@ -36,64 +40,68 @@ class _TimeTablePage extends State<TimeTablePage> {
   Widget build(BuildContext context) {
     return NormalLayout(
         headText: 'Time table',
-        child: Column(
-          children: [
-            Expanded(
-              child: TableCalendar(
-                firstDay: DateTime.utc(2010, 10, 16),
-                lastDay: DateTime.utc(2030, 3, 14),
-                focusedDay: today,
-                onDaySelected: _onDaySelected,
-                rowHeight: 40,
-                selectedDayPredicate: (day) => isSameDay(day, today),
-                headerStyle: HeaderStyle(
-                    formatButtonVisible: false, titleCentered: true),
+        child: Center(
+          child: Column(
+            children: [
+              Expanded(
+                flex: 6,
+                child: TableCalendar(
+                  firstDay: DateTime.utc(2010, 10, 16),
+                  lastDay: DateTime.utc(2030, 3, 14),
+                  focusedDay: today,
+                  onDaySelected: _onDaySelected,
+                  rowHeight: 40,
+                  selectedDayPredicate: (day) => isSameDay(day, today),
+                  headerStyle: HeaderStyle(
+                      formatButtonVisible: false, titleCentered: true),
+                ),
               ),
-            ),
-            Expanded(
-                child: check
-                    ? Container(
-                        child: ListView.builder(
-                            itemCount: data.length,
-                            itemBuilder: (context, index) {
-                              CalendarData item = data[index];
-                              return Padding(
-                                padding: const EdgeInsets.only(bottom: 10),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: Container(
-                                    padding: EdgeInsets.fromLTRB(5, 20, 5, 20),
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey.withOpacity(0.2),
-                                      border: Border.all(color: Colors.black),
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Expanded(
-                                          child: Text(item.fieldName,
-                                              textAlign: TextAlign.center),
-                                        ),
-                                        Expanded(
-                                          child: Text(item.Time,
-                                              textAlign: TextAlign.center),
-                                        ),
-                                        Expanded(
-                                          child: Text(item.room,
-                                              textAlign: TextAlign.center),
-                                        )
-                                      ],
+              Expanded(
+                flex: 4,
+                  child: check
+                      ? Container(
+                          child: ListView.builder(
+                              itemCount: data.length,
+                              itemBuilder: (context, index) {
+                                CalendarData item = data[index];
+                                return Padding(
+                                  padding: const EdgeInsets.only(bottom: 10),
+                                  child: Align(
+                                    alignment: Alignment.center,
+                                    child: Container(
+                                      padding: EdgeInsets.fromLTRB(5, 20, 5, 20),
+                                      decoration: BoxDecoration(
+                                        color: Colors.grey.withOpacity(0.2),
+                                        border: Border.all(color: Colors.black),
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Expanded(
+                                            child: Text(item.fieldName,
+                                                textAlign: TextAlign.center),
+                                          ),
+                                          Expanded(
+                                            child: Text(item.Time,
+                                                textAlign: TextAlign.center),
+                                          ),
+                                          Expanded(
+                                            child: Text(item.room,
+                                                textAlign: TextAlign.center),
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                              );
-                            }),
-                      )
-                    : Center(
-                        child: Text("No calendar for today"),
-                      ))
-          ],
+                                );
+                              }),
+                        )
+                      : Center(
+                          child: Text("No calendar for today"),
+                        ))
+            ],
+          ),
         ));
   }
 }
